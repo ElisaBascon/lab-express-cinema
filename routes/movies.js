@@ -5,7 +5,12 @@ const Movie = require('../models/Movie');
 
 /* GET home page */
 router.get('/movies', async (req, res, next) => {
-    res.render('index')
+    try { 
+        const movies = await Movie.find({});
+        res.render('movies', { movies }) 
+    } catch (error) {
+        next(error) 
+    }
 });
 
 module.exports = router;
