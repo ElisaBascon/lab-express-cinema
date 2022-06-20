@@ -13,4 +13,16 @@ router.get('/movies', async (req, res, next) => {
     }
 });
 
+router.get('/movies/:movieId', (req, res, next) => {
+    const {movieId} = req.params;
+    Movie.findById(movieId)
+        .then( movie => {
+            res.render('./movie', {movie: movie})
+        })
+        .catch(err => {
+            console.log(`Error retrieving movie details --> ${err}`, )
+            next(err)
+        })
+});
+
 module.exports = router;

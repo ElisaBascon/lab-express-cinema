@@ -2,7 +2,7 @@
 <h3>Click on the movies to check the showtimes</h3>
 
 {{#each movies}}
-    <img src="{{this.image}}" alt="" />
+    <img src="{{this.image}}" alt="movie">
     <h3>{{this.title}}</h3>
-    <a href="/movies/{{showtimes}}">See more</a>
-{{/each  }}
+    <a href="/movies/{{this._id}}">See more</a>   
+{{/each }}
